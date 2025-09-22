@@ -45,8 +45,8 @@
 
     <!-- Modbus4J client for Modbus TCP -->
     <dependency>
-      <groupId>com.serotonin</groupId>
-      <artifactId>modbus4j</artifactId>
+        <groupId>com.infiniteautomation</groupId>
+        <artifactId>modbus4j</artifactId>
       <version>${modbus4j.version}</version>
     </dependency>
 
