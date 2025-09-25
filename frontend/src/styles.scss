@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+/* Importa los estilos principales de Angular Material */
+@use '@angular/material' as mat;
+
+/* Definir un tema preconstruido (ejemplo: Azure Blue) */
+@include mat.core();
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette
+  ),
+  density: 0,
+));
+
+/* Aplica el tema a toda la app */
+:root {
+  @include mat.all-component-themes($theme);
+}
+
+/* Tipografía global */
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+}
