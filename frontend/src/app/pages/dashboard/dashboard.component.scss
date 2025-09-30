@@ -1,0 +1,58 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Toolbar arriba */
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+/* Layout con sidenav */
+mat-sidenav-container {
+  flex: 1;
+  margin-top: 10px; // altura del toolbar
+  height: calc(100vh - 64px);
+}
+
+mat-sidenav {
+  width: 220px;
+  background: #f4f4f4;
+  padding: 10px;
+}
+
+mat-sidenav-content {
+  padding: 16px;
+  background: #fafafa;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.mat-mdc-header-row {
+  background: #1976d2;
+  color: white;
+}
+
+.mat-mdc-row:nth-child(even) {
+  background: #f1f1f1;
+}
+
+.mat-mdc-row:hover {
+  background: #e3f2fd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 180px;
+  }
+}

@@ -1,0 +1,38 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 310px;
+  background-color: #f4f4f4;
+  padding: 5px;
+}
+
+.sidenav-header {
+  font-weight: bold;
+  text-transform: uppercase;
+  justify-content: center;
+}
+
+.mat-list-item {
+  color: #333;
+}
+
+.mat-list-item.active {
+  background-color: rgba(63, 81, 181, 0.1);
+  border-left: 4px solid #3f51b5;
+}
+
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-button {
+  margin-right: 16px;
+}
+
+.content {
+  padding: 16px;
+}
