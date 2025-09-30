@@ -18,5 +18,6 @@ export const routes: Routes = [
       { path: 'prueba-corto', component: CortoCircuitoComponent },
       { path: 'prueba-vacio', component: VacioComponent },
     ]
-  }
+  },
+  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
