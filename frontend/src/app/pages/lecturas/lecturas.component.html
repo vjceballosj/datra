@@ -1,33 +1,52 @@
-<mat-toolbar color="accent">
-  <span>Lecturas PM130+</span>
+<mat-toolbar color="primary">
+  <span>📟 Lecturas en Tiempo Real</span>
 </mat-toolbar>
 
-<div class="content">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="dashboard-grid">
+  <mat-card class="sensor-card voltage" *ngFor="let variable of [
+    'V L12', 'V L23', 'V L31',
+    'V L1', 'V L2', 'V L3'
+  ]">
+    <mat-card-header>
+      <mat-card-title>{{ variable }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="value">{{ obtenerValor(variable) | number:'1.2-2' }}</div>
+      <div class="unit">V</div>
+    </mat-card-content>
+  </mat-card>
 
-    <!-- Variable -->
-    <ng-container matColumnDef="variable">
-      <th mat-header-cell *matHeaderCellDef> Variable </th>
-      <td mat-cell *matCellDef="let element"> {{ element.variable }} </td>
-    </ng-container>
+  <mat-card class="sensor-card current" *ngFor="let variable of [
+    'I L1', 'I L2', 'I L3', 'I NEUTRAL'
+  ]">
+    <mat-card-header>
+      <mat-card-title>{{ variable }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="value">{{ obtenerValor(variable) | number:'1.2-2' }}</div>
+      <div class="unit">A</div>
+    </mat-card-content>
+  </mat-card>
 
-    <!-- Valor -->
-    <ng-container matColumnDef="valor">
-      <th mat-header-cell *matHeaderCellDef> Valor </th>
-      <td mat-cell *matCellDef="let element"> {{ element.valor }} </td>
-    </ng-container>
+  <mat-card class="sensor-card power-factor" *ngFor="let variable of [
+    'PF L1', 'PF L2', 'PF L3', 'PF TOTAL'
+  ]">
+    <mat-card-header>
+      <mat-card-title>{{ variable }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="value">{{ obtenerValor(variable) | number:'1.2-2' }}</div>
+      <div class="unit">PF</div>
+    </mat-card-content>
+  </mat-card>
 
-    <!-- Unidad -->
-    <ng-container matColumnDef="unidad">
-      <th mat-header-cell *matHeaderCellDef> Unidad </th>
-      <td mat-cell *matCellDef="let element"> {{ element.unidad }} </td>
-    </ng-container>
-
-    <!-- Encabezado -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <!-- Filas -->
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-  </table>
+  <mat-card class="sensor-card frequency">
+    <mat-card-header>
+      <mat-card-title>FRECUENCIA</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="value">{{ obtenerValor('FRECUENCIA') | number:'1.2-2' }}</div>
+      <div class="unit">Hz</div>
+    </mat-card-content>
+  </mat-card>
 </div>
-

@@ -12,7 +12,7 @@ export interface Lectura {
   providedIn: 'root'
 })
 export class MeasurementService {
-  private apiUrl = 'http://localhost:8080/api/lecturas'; // ajusta tu endpoint
+  private apiUrl = 'http://localhost:8080/api/lecturas'; // ajusta tu endpoint real
 
   constructor(private http: HttpClient) {}
 

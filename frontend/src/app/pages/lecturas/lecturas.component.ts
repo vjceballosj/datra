@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
-import { Lectura, MeasurementService } from '../../core/services/measurement.service';
-import { MatToolbar } from "@angular/material/toolbar";
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule, MatCardTitle, MatCardHeader, MatCardContent } from '@angular/material/card';
+import { MeasurementService, Lectura } from '../../core/services/measurement.service';
 
 @Component({
   selector: 'app-lecturas',
   standalone: true,
-  imports: [MatTableModule, MatToolbar],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatCardTitle,
+    MatCardHeader,
+    MatCardContent,
+    DecimalPipe
+  ],
   templateUrl: './lecturas.component.html',
   styleUrls: ['./lecturas.component.scss']
 })
-export class LecturasComponent {
+export class LecturasComponent implements OnInit {
   displayedColumns: string[] = ['variable', 'valor', 'unidad'];
   dataSource: Lectura[] = [];
 
@@ -19,11 +29,13 @@ export class LecturasComponent {
 
   ngOnInit(): void {
     this.measurementService.obtenerLecturas().subscribe({
-      next: (data: Lectura[]) => (this.dataSource = data),
+      next: (data: Lectura[]) => this.dataSource = data,
       error: (err: any) => console.error('Error al cargar lecturas:', err),
     });
   }
+
+  obtenerValor(variable: string): number {
+    const lectura = this.dataSource.find(v => v.variable === variable);
+    return lectura ? lectura.valor : 0;
+  }
 }
-
-
-
