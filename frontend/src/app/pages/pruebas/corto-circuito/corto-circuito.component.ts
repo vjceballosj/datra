@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { DecimalPipe } from '@angular/common';
 import { MeasurementService } from '../../../core/services/measurement.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -36,7 +37,9 @@ export class CortoCircuitoComponent implements OnInit {
     'PERDIDAS EN EL COBRE (W)': 0
   };
 
-  constructor(private measurementService: MeasurementService) { }
+  constructor(private measurementService: MeasurementService, private router: Router) { }
+  
+  pruebaActiva = false;
 
   ngOnInit(): void {
     // Simulación de lecturas en tiempo real (luego reemplazamos con API)
@@ -53,15 +56,18 @@ export class CortoCircuitoComponent implements OnInit {
   }
 
   iniciarPrueba() {
+    this.pruebaActiva = true;
     console.log('✅ Prueba iniciada');
   }
 
   detenerPrueba() {
+    this.pruebaActiva = false;
     console.log('🛑 Prueba detenida y datos guardados');
   }
 
   cerrar() {
     console.log('🔒 Prueba cerrada');
+    this.router.navigate(['/dashboard']);
   }
 }
 

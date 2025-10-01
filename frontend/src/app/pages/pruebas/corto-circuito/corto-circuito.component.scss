@@ -1,47 +1,43 @@
 .contenedor-prueba {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 16px;
-  padding: 16px;
-  background-color: #f4f4f4;
+  padding: 1rem;
+  background: #fff;
 }
 
 .procedimiento {
-  grid-column: 1 / span 2;
-  background-color: #fffbe6;
-  border: 2px solid #d3b200;
+  border-left: 5px solid;
+  background-color: #f4f4f4;
+  margin-bottom: 1rem;
 }
 
-.botonera {
+// título procedimiento
+h3 {
+  text-align: center;
+  padding: 5px;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.actions {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-  align-items: stretch;
+  justify-content: space-evenly;
+  padding: 1rem;
 
   button {
     font-weight: bold;
   }
 }
 
-.lecturas, .calculados {
-  background: #ffffff;
-  border: 2px solid #333;
-  
+.lecturas,
+.calculados {
+  border-left: 5px solid;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f4f4f4;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  font-size: 14px;
-}
-
-h3 {
-  background-color: #eee;
-  text-align: center;
-  padding: 6px;
-  margin-top: 0;
-  font-weight: bold;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
 }

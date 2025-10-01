@@ -16,6 +16,11 @@
   z-index: 1000;
 }
 
+.toolbar-title {
+  transition: opacity 0.3s ease;
+  font-weight: 500;
+}
+
 .menu-button {
   margin-right: 16px;
 }
