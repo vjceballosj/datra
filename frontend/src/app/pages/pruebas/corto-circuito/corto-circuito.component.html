@@ -1,1 +1,43 @@
-<p>corto-circuito works!</p>
+<div class="contenedor-prueba">
+
+  <!-- Cuadro de procedimiento -->
+  <mat-card class="procedimiento">
+    <h3>PROCEDIMIENTO:</h3>
+    <ol>
+      <li>Aislar la zona donde se va a realizar la prueba.</li>
+      <li>Revisar el diagrama de conexión transformador al banco.</li>
+      <li>Realizar las conexiones mostradas, dejando al final el cable de potencia.</li>
+      <li>Revisar y ejecutar la prueba.</li>
+      <li>Realizar mediciones y guardar los resultados.</li>
+    </ol>
+  </mat-card>
+
+  <!-- Cuadro de botones -->
+  <mat-card class="botonera">
+    <button mat-raised-button color="primary" (click)="iniciarPrueba()">INICIAR PRUEBA</button>
+    <button mat-raised-button color="warn" (click)="detenerPrueba()">DETENER PRUEBA - GUARDAR MEDIDAS</button>
+    <button mat-raised-button color="accent" (click)="cerrar()">CERRAR</button>
+  </mat-card>
+
+  <!-- Cuadro de lecturas -->
+  <mat-card class="lecturas">
+    <h3>DATOS DE INFORMACIÓN</h3>
+    <div class="grid">
+      <div *ngFor="let key of (lecturas | keyvalue)">
+        <strong>{{ key.key }}</strong>: {{ key.value | number:'1.2-2' }}
+      </div>
+    </div>
+  </mat-card>
+
+  <!-- Cuadro de datos calculados -->
+  <mat-card class="calculados">
+    <h3>DATOS DE LA PRUEBA</h3>
+    <div class="grid">
+      <div *ngFor="let key of (calculados | keyvalue)">
+        <strong>{{ key.key }}</strong>: {{ key.value | number:'1.2-2' }}
+      </div>
+    </div>
+  </mat-card>
+
+</div>
+

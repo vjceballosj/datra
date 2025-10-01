@@ -1,1 +1,46 @@
-<p>vacio works!</p>
+<div class="vacio-container">
+  <h2 class="title">PRUEBA DE VACÍO</h2>
+
+  <mat-card class="procedimiento">
+    <h3>PROCEDIMIENTO:</h3>
+    <ol>
+      <li>AISLAR LA ZONA DONDE SE VA A REALIZAR LA PRUEBA</li>
+      <li>REVISAR DIAGRAMA DE CONEXIÓN TRANSFORMADOR AL BANCO</li>
+      <li>REALIZAR LAS CONEXIONES MOSTRADAS EN EL DIAGRAMA</li>
+      <li>VERIFICAR CONEXIONES Y EJECUTAR LA PRUEBA</li>
+      <li>UNA VEZ SE OBTENGAN MEDIDAS, DETENER PRUEBA Y GUARDAR</li>
+      <li>GUARDAR RESULTADOS</li>
+    </ol>
+  </mat-card>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="iniciarPrueba()" [disabled]="pruebaActiva">
+      EJECUTAR MEDICIONES
+    </button>
+
+    <button mat-raised-button color="warn" (click)="detenerPrueba()" [disabled]="!pruebaActiva">
+      DETENER PRUEBA - GUARDAR MEDIDAS
+    </button>
+
+    <button mat-raised-button color="accent" (click)="cerrar()">
+      CERRAR
+    </button>
+  </div>
+
+  <mat-card class="resultados">
+    <h3>DATOS DE LA PRUEBA:</h3>
+    <div *ngFor="let item of resultados | keyvalue">
+      <strong>{{ item.key }}</strong>: {{ item.value | number:'1.2-2' }}
+    </div>
+  </mat-card>
+
+  <mat-card class="lecturas">
+    <h3>DATOS DE INFORMACIÓN:</h3>
+    <div class="grid">
+      <div *ngFor="let key of (lecturas | keyvalue)">
+        <strong>{{ key.key }}</strong>: {{ key.value | number:'1.2-2' }}
+      </div>
+    </div>
+  </mat-card>
+</div>
+

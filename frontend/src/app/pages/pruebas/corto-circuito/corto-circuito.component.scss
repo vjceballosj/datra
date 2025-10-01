@@ -1,0 +1,47 @@
+.contenedor-prueba {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+  padding: 16px;
+  background-color: #f4f4f4;
+}
+
+.procedimiento {
+  grid-column: 1 / span 2;
+  background-color: #fffbe6;
+  border: 2px solid #d3b200;
+}
+
+.botonera {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: stretch;
+
+  button {
+    font-weight: bold;
+  }
+}
+
+.lecturas, .calculados {
+  background: #ffffff;
+  border: 2px solid #333;
+  
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  font-size: 14px;
+}
+
+h3 {
+  background-color: #eee;
+  text-align: center;
+  padding: 6px;
+  margin-top: 0;
+  font-weight: bold;
+}
